@@ -1,4 +1,6 @@
+const { name } = require("faker");
 
+let cadastro;
 
 function update(index,link){
     
@@ -96,15 +98,40 @@ function update(index,link){
 
 }
 
-function remove(index,link){
-
-
-
-}
-   
-
-   
-
+function remove(index,name,link){ 
+    
+     const http = new XMLHttpRequest(); 
+     const url=link;
+ 
+     http.open("POST",link,true); 
+     http.setRequestHeader('Content-Type','application/json'); 
+ 
+     
+     dataToSend = JSON.stringify({name:name}); 
+ 
+     http.send(dataToSend);
+ 
+     http.onload = ()=>{ 
+         let resp = JSON.parse(http.response);
+        
+         let tr = document.querySelector(`table#list > tbody > tr[data-index-row='${index}']`);
+ 
+         if (http.readyState === 4 && http.status === 200) {
+             tr.remove();
+             console.log(`Item ${index} removido com sucesso!`);
+ 
+         } else {
+             console.log(`Erro durante a tentativa de remoção do usuário: ${name}! Código do Erro: ${http.status}`); 
+         }
+         
+ 
+     }
+ }
+    
+ function add(data){
+     
+ }
+ 
 
 
 

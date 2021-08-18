@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
+
 body{
-    font-family: 'Comic Sans', sans-serif;
+    font-family: 'Palette Mosaic', cursive !important;
+
 }
 .show{
     display:inline-flexbox;
