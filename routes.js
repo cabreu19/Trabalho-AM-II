@@ -121,7 +121,7 @@ router.post('/cadastro/add',(req,res)=>{
         status:'sucess',
         data: `Usuário ${user} foi adiocionado com sucesso!`
     });
-    render(cadastro.ejs);
+    
 
 });
 
