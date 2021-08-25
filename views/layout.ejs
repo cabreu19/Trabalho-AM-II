@@ -4,37 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-
     
+    
+    <link rel="stylesheet" href="/css/style.css">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>First App</title>
 </head>
 <body>
-    <div class="display-3 text-center bg-secondary" style="margin-bottom:0">
-        First App
+    <div class="display-4 font-weight-bold text-center text-white bg-info" style="margin-bottom:0">
+        
     </div>
-
+    
     <%- include('pages/header') %>
      
     
-
     <main>
-        <div class="container">
+        <div class="container-fluid">
             <%- body %>
         </div>
 
     </main>
     
-    <footer>
-        <div class="d-flex">
+    <footer style="text-align: center; " >
+        <div class="d-flex clear" >
 
-            <div class="p-2 bg-info flex-grow-1 small text-white">
-                <i>Copyleft</i> Caio Bezerra - Todos os direitos reservados
+            <div class="p-2 bg-info flex-grow-1 small text-white"style="background-image: linear-gradient(to right, #6C42FC , #E64789);">
+                <i>Copyleft</i> Caio Vinicius Bezerra Abreu - all rights reserved.   Página sob licença <a class="text-light" href="https://www.gnu.org/licenses/gpl-3.0.txt">Gnu Public License version 3.0.</a>
             </div>
         </div>
+        
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
