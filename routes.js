@@ -1,4 +1,3 @@
-const { render } = require("ejs");
 const express = require("express");
 const router = express.Router();
 
@@ -49,7 +48,8 @@ router.post('/cadastro/remove',(req,res)=>{
             }
         }
     }
-    
+    console.log("Elementos cadastrados: ",users);
+    res.sendStatus(200);
     
     
     
@@ -77,23 +77,19 @@ router.get('/cadastro/list',(req,res)=>{
 });
 
 router.post('/cadastro/add',(req,res)=>{
-    let user={name:"",email:"",address:"",heigth:"",age:"",vote:""};
+    let user = {name:"",email:"",address:"",height:"",age:"",vote:""};
 
-    user.name = req.body._name;
-    user.email = req.body._email;
-    user.address = req.body._address;
-    user.heigth = req.body._heigth;
-    user.age = req.body._age;
-    user.vote = req.body._vote;
+    user.name = req.body.name;
+    user.email = req.body.email;
+    user.address = req.body.address;
+    user.height = req.body.height;
+    user.age = req.body.age;
+    user.vote = req.body.vote;
 
     users.push(user);
     console.log("Usuário cadastrado: ",user);
-    console.log("Lista dos usuários: ",users); 
+
     res.sendStatus(200);
-    res.status(200).json({
-        status:'sucess',
-        data: `Usuário ${user} foi adiocionado com sucesso!`
-    });
     
 
 });
