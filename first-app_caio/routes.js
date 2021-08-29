@@ -1,25 +1,23 @@
 const express = require("express");
 const router = express.Router();
 
-
 router.use(express.static('public'));
 
-router.get('/',(req,res)=>{ 
+
+router.get('/',(req,res)=>{
     res.render('pages/home');
 });
 
-router.get('/about',(req,res)=>{ 
+router.get('/about',(req,res)=>{
 
-    res.render('pages/about');
+res.render('pages/about');
 });
 
-router.get('/cadastro',(req,res)=>{ 
-
+router.get('/cadastro',(req,res)=>{
     res.render('pages/cadastro',{users:users}); 
 });
 
-router.post('/cadastro/remove',(req,res)=>{
-    
+router.post('/cadastro/remove',(req,res)=>{ 
     let name = req.body.name;
 
     if(users.length==0){
@@ -38,42 +36,35 @@ router.post('/cadastro/remove',(req,res)=>{
                     status:'sucess',
                     data:users
                 });
-                
             } else if(cont==users.length-1){
                 console.log("Erro ao remover elemento: ",name);
                 return res.status(400).json({
                     status:'error',
-                    error:`Didn't Remove element: ${name}`
+                    error:`Didn't element: ${name}`
                 });
             }
         }
     }
+
     console.log("Elementos cadastrados: ",users);
     res.sendStatus(200);
-    
-    
-    
 });
 
-
 router.post('/cadastro/update',(req,res)=>{
-    
 
-    users[req.body.id].name=req.body.name; 
+    users[req.body.id].name=req.body.name;
     users[req.body.id].email=req.body.email;
     users[req.body.id].address=req.body.address;
     users[req.body.id].age=req.body.age;
-    users[req.body.id].heigth=req.body.heigth;
+    users[req.body.id].height=req.body.height;
     users[req.body.id].vote=req.body.vote;
 
-
-    res.sendStatus(200); 
+    res.sendStatus(200);
     console.log("Dados recebidos: ",req.body);
 });
 
-router.get('/cadastro/list',(req,res)=>{
-    
-
+router.post('/cadastro/list', (req,res)=>{
+    res.send(JSON.stringify(users));
 });
 
 router.post('/cadastro/add',(req,res)=>{
@@ -90,9 +81,6 @@ router.post('/cadastro/add',(req,res)=>{
     console.log("Usuário cadastrado: ",user);
 
     res.sendStatus(200);
-    
-
 });
-
 
 module.exports = router;

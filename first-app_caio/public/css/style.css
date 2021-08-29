@@ -46,7 +46,12 @@ h2{
     background-image: linear-gradient(to right, #6C42FC , #E64789);
     border: 0px;
     width: 100%;
+    color: #fff;
+    border-radius: 5px;
+    font-weight:bolder;
+    
 }
+
 
 .size{
     display: table-row;
